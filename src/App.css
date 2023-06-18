@@ -38,6 +38,7 @@ input {
 
 .active {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .products {

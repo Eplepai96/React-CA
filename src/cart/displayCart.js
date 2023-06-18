@@ -14,7 +14,7 @@ export function Cart() {
       return updatedItems;
     });
   };
-  
+
   const handleDecreaseQuantity = (itemId) => {
     setSelectedItems((prevItems) => {
       const updatedItems = { ...prevItems };
@@ -27,7 +27,6 @@ export function Cart() {
       return updatedItems;
     });
   };
-  
 
   const handleClearCart = () => {
     clearItems();
@@ -38,36 +37,51 @@ export function Cart() {
     navigate('/checkout');
   };
 
+  const totalItems = Object.values(selectedItems).reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+  const totalPrice = Object.values(selectedItems).reduce(
+    (total, item) => total + item.quantity * item.price,
+    0
+  );
+
   return (
     <div>
-        <h1>Your items</h1>
-            <div className='cartContainer'>
+      <h1>Your items</h1>
+      <div className='cartItems'>
         {Object.keys(selectedItems).length > 0 ? (
-            Object.entries(selectedItems).map(([itemId, item]) => (
+          Object.entries(selectedItems).map(([itemId, item]) => (
             <div key={itemId}>
-                <hr />
-                <h2>{item.title}</h2>
-                <div className="itemInfo">
+              <hr />
+              <h2>{item.title}</h2>
+              <div className="itemInfo">
                 <p>{item.description}</p>
                 <div className="itemQuantity">
-                    <button className='btn-secondary' onClick={() => handleIncreaseQuantity(itemId)}>+</button>
-                    <span>{item.quantity}</span>
-                    <button className='btn-secondary' onClick={() => handleDecreaseQuantity(itemId)}>-</button>
+                  <button className='btn-secondary' onClick={() => handleIncreaseQuantity(itemId)}>+</button>
+                  <span>{item.quantity}</span>
+                  <button className='btn-secondary' onClick={() => handleDecreaseQuantity(itemId)}>-</button>
                 </div>
-                </div>
-                <hr />
+              </div>
+              <hr />
             </div>
-            ))
+          ))
         ) : (
-            <p>No items in the cart.</p>
+          <p>No items in the cart.</p>
         )}
+        <div>
+            <p>Total Items: {totalItems}</p>
+            <p>Total Price: ${totalPrice.toFixed(2)}</p>
+        </div>
         {Object.keys(selectedItems).length > 0 && (
-            <div>
+          <div>
             <button className='btn-secondary' onClick={handleClearCart}>Clear Cart</button>
             <button className='btn-primary' onClick={handlePurchase}>Purchase</button>
-            </div>
+          </div>
         )}
-        </div>
+      </div>
+      
     </div>
-  );  
+  );
 }
+
