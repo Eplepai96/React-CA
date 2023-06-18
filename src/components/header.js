@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { BASEURL } from '../api';
 import { useLocalStorage } from '../storage';
+
 
 export function SearchBar({ onSearch, results, onItemClick }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -114,18 +115,18 @@ export const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink exact to="/" activeClassName="active">Home</NavLink>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <NavLink to="/contact" activeClassName="active">Contact</NavLink>
             </li>
           </ul>
         </nav>
       </div>
       <div className="cartContainer">
-        <Link to="/shopping-cart">
+        <NavLink to="/shopping-cart">
           <FaShoppingCart />
-        </Link>
+        </NavLink>
         <DisplayQuantity />
       </div>
       <SearchBar

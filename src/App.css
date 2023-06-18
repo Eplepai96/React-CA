@@ -35,6 +35,11 @@ h1, h2, h3 {
 input {
   padding: 5px;
 }
+
+.active {
+  text-decoration: underline;
+}
+
 .products {
   display: flex;
   border-radius: 3px;
