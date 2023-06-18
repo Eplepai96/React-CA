@@ -1,1 +1,1 @@
-export * from "./contactForm"
+export * from "./contactForm.jsx"

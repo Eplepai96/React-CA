@@ -1,3 +1,3 @@
-export * from "./header.js"
-export * from "./footer.js"
-export * from "./routeError.js"
+export * from "./header.jsx"
+export * from "./footer.jsx"
+export * from "./routeError.jsx"
