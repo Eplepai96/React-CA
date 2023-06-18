@@ -169,6 +169,11 @@ a {
   margin-bottom: 10px;
 }
 
+.reviews {
+  border: 1px solid var(--tertiary);
+  margin: 5px;
+}
+
 .textareaGroup {
   display: flex;
   flex-direction: column;
