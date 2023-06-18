@@ -14,7 +14,7 @@ export function SearchBar({ onSearch, results, onItemClick }) {
   };
 
   return (
-    <div>
+    <div className="searchContainer">
       <input
         type="text"
         value={searchQuery}
@@ -119,25 +119,22 @@ export const Header = () => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
-              <SearchBar
-                onSearch={handleSearch}
-                results={suggestedResults}
-                onItemClick={handleItemClick}
-              />
-            </li>
-            <li>
-              <Link to="/shopping-cart">
-                <FaShoppingCart />
-              </Link>
-              <DisplayQuantity />
-            </li>
           </ul>
         </nav>
       </div>
+      <div className="cartContainer">
+        <Link to="/shopping-cart">
+          <FaShoppingCart />
+        </Link>
+        <DisplayQuantity />
+      </div>
+      <SearchBar
+        onSearch={handleSearch}
+        results={suggestedResults}
+        onItemClick={handleItemClick}
+      />
     </div>
   );
 };
 
 export default Header;
-
