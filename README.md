@@ -1,4 +1,5 @@
 # JavaScript Frameworks course assignment
+![JS-frameworks-screenshot](https://github.com/Eplepai96/react-ca/assets/95239043/49731e31-742f-4550-a57a-86e129c3c071)
 
 ### Description
 Simple store application buildt with React during my studies at Noroff. The user can browse items, add items to a cart, and read reviews for each item. On the cart page, the user can add and delete the items that exist in the cart. The user can also see the total price and total amount of items in the cart. There is also a contact page with a form using Yup for validation. I had issues with styles not applying in the live app during this project, so the styles are not very nice, but a good introduction to React regardless. 
